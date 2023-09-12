@@ -85,7 +85,9 @@ const Home = () => {
     <div>
       {userData.loading && <h1 className="text-center">Loading....!</h1>}
       <div className="m-auto flex w-10% mt-2 justify-between">
-        {!isData && userData.loading === false && userData.error === false && (
+        {
+        // !isData && userData.loading === false && userData.error === false &&
+         (
           <FormControl sx={{ width: "20%", margin: "auto" }}>
             <InputLabel id="demo-simple-select-label">Select Page</InputLabel>
             <Select
@@ -94,7 +96,7 @@ const Home = () => {
               value={page}
               label="pagination"
               onChange={(e) => setPage(e.target.value)}>
-              {Count &&
+              {Count && data.length>0&&
                 Count.map((item) => (
                   <MenuItem key={item} value={item}>
                     PageNo {item + 1}
@@ -157,7 +159,7 @@ const Home = () => {
 
       {/* /// search input  end here /////    */}
 
-      {!isData && userData.loading === false && userData.error === false && (
+      {data.length>0 && (
         <div className="bg-white">
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
